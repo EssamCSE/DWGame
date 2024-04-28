@@ -168,24 +168,7 @@ public class DoorWayGam2 extends Application {
                 // CHECK PLAYER FALLING, IF HE FALLS, THE GAME WILL BE OVER
                 if(variables.charY > variables.SCREEN_HEIGHT) {
                 	gameOver(primaryStage);
-                	
-                	/*
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * 
-                	 * */
+                
                 }
                 
                 if (variables.touchedMob1) {
