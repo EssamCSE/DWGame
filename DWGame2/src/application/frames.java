@@ -1,4 +1,6 @@
 package application;
+import java.util.concurrent.Flow.Publisher;
+
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,6 +13,17 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class  frames {
+	
+	public static ImageView imageView;
+	public static ImageView imageView1;
+	public static ImageView imageView2;
+	public static ImageView imageView3;
+	public static ImageView imageView4;
+	public static ImageView imageView5;
+	public static ImageView imageView6;
+	public static ImageView imageView7;
+	public static ImageView imageView8;
+	
 	public void background(Stage primaryStage,Button playButton)
 	{
 		Image img = new Image(getClass().getResourceAsStream("/Assets/main.png"));
@@ -74,6 +87,15 @@ public class  frames {
     variables.charY = variables.platforma.getY() - variables.charView.getFitHeight();
 
 }
+	public void createPane(ImageView imageView,  double x, double y, double width, double height, String imagePath) {
+	    Image image = new Image(getClass().getResourceAsStream(imagePath));
+	    imageView.setImage(image);
+	    imageView.setX(x);
+	    imageView.setY(y);
+	    imageView.setFitWidth(width);
+	    imageView.setFitHeight(height);
+	}
+
 	public Scene createGameScene() {
 
         Pane gamePane = new Pane();
@@ -81,54 +103,70 @@ public class  frames {
         gamePane.setStyle("-fx-background-color: #87CEEB;");
 
       //decoration
-        Image image = new Image(getClass().getResourceAsStream("/Assets/cloud2.png"));
-        ImageView imageView = new ImageView(image);
-        imageView.setX(800);
-        imageView.setY(100);
-        imageView.setFitWidth(400);
-        imageView.setFitHeight(400);
+        imageView = new ImageView();
+        createPane(imageView, 800, 100, 400, 400, "/Assets/cloud2.png");
+        
+       // للإختصار
+//        Image image = new Image(getClass().getResourceAsStream("/Assets/cloud2.png"));
+//        ImageView imageView = new ImageView(image);
+//        imageView.setX(800);
+//        imageView.setY(100);
+//        imageView.setFitWidth(400);
+//        imageView.setFitHeight(400);
 
-        Image image1 = new Image(getClass().getResourceAsStream("/Assets/cloud1.png"));
-        ImageView imageView1 = new ImageView(image1);
-        imageView1.setX(300);
-        imageView1.setY(200);
-        imageView1.setFitWidth(400);
-        imageView1.setFitHeight(400);
+        imageView1 = new ImageView();
+        createPane(imageView1, 300, 200, 400, 400, "/Assets/cloud1.png");
+//        Image image1 = new Image(getClass().getResourceAsStream("/Assets/cloud1.png"));
+//        ImageView imageView1 = new ImageView(image1);
+//        imageView1.setX(300);
+//        imageView1.setY(200);
+//        imageView1.setFitWidth(400);
+//        imageView1.setFitHeight(400);
+        
+        imageView4 = new ImageView();
+        createPane(imageView4, 2900, 200, 400, 400, "/Assets/cloud2.png");
+//        Image image4 = new Image(getClass().getResourceAsStream("/Assets/cloud2.png"));
+//        ImageView imageView4 = new ImageView(image4);
+//        imageView4.setX(2900);
+//        imageView4.setY(200);
+//        imageView4.setFitWidth(400);
+//        imageView4.setFitHeight(400);
 
-        Image image4 = new Image(getClass().getResourceAsStream("/Assets/cloud2.png"));
-        ImageView imageView4 = new ImageView(image4);
-        imageView4.setX(2900);
-        imageView4.setY(200);
-        imageView4.setFitWidth(400);
-        imageView4.setFitHeight(400);
-
-        Image image5 = new Image(getClass().getResourceAsStream("/Assets/cloud1.png"));
-        ImageView imageView5 = new ImageView(image5);
-        imageView5.setX(3400);
-        imageView5.setY(220);
-        imageView5.setFitWidth(400);
-        imageView5.setFitHeight(400);
-
-        Image image6 = new Image(getClass().getResourceAsStream("/Assets/cloud3.png"));
-        ImageView imageView6 = new ImageView(image6);
-        imageView6.setX(4100);
-        imageView6.setY(200);
-        imageView6.setFitWidth(400);
-        imageView6.setFitHeight(400);
-
-        Image image7 = new Image(getClass().getResourceAsStream("/Assets/Bush (1).png"));
-        ImageView imageView7 = new ImageView(image7);
-        imageView7.setX(300);
-        imageView7.setY(539);
-        imageView7.setFitWidth(80);
-        imageView7.setFitHeight(65);
-
-        Image image8 = new Image(getClass().getResourceAsStream("/Assets/Bush (3).png"));
-        ImageView imageView8 = new ImageView(image8);
-        imageView8.setX(820);
-        imageView8.setY(642);
-        imageView8.setFitWidth(80);
-        imageView8.setFitHeight(65);
+        imageView5 = new ImageView();
+        createPane(imageView5, 3400, 220, 400, 400, "/Assets/cloud1.png");
+//        Image image5 = new Image(getClass().getResourceAsStream("/Assets/cloud1.png"));
+//        ImageView imageView5 = new ImageView(image5);
+//        imageView5.setX(3400);
+//        imageView5.setY(220);
+//        imageView5.setFitWidth(400);
+//        imageView5.setFitHeight(400);
+        
+        imageView6 = new ImageView();
+        createPane(imageView6, 4100, 200, 400, 400,"/Assets/cloud3.png");
+//        Image image6 = new Image(getClass().getResourceAsStream("/Assets/cloud3.png"));
+//        ImageView imageView6 = new ImageView(image6);
+//        imageView6.setX(4100);
+//        imageView6.setY(200);
+//        imageView6.setFitWidth(400);
+//        imageView6.setFitHeight(400);
+        
+        imageView7 = new ImageView();
+        createPane(imageView7, 300, 539, 80, 65, "/Assets/Bush (1).png");
+//        Image image7 = new Image(getClass().getResourceAsStream("/Assets/Bush (1).png"));
+//        ImageView imageView7 = new ImageView(image7);
+//        imageView7.setX(300);
+//        imageView7.setY(539);
+//        imageView7.setFitWidth(80);
+//        imageView7.setFitHeight(65);
+        
+        imageView8 = new ImageView();
+        createPane(imageView8, 820, 642, 80, 65, "/Assets/Bush (3).png");
+//        Image image8 = new Image(getClass().getResourceAsStream("/Assets/Bush (3).png"));
+//        ImageView imageView8 = new ImageView(image8);
+//        imageView8.setX(820);
+//        imageView8.setY(642);
+//        imageView8.setFitWidth(80);
+//        imageView8.setFitHeight(65);
 
         //coin
         ObjectManager obj=new ObjectManager();

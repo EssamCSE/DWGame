@@ -20,7 +20,7 @@ public class variables {
 	private static final Paint treeimgp = null;
 	private static final Paint treeimgp2 = null;
 	private static final Paint treeimgp3 = null;
-
+	
     public static Image[] frameLeft;
     public static Image[] frameRight;
     public static Image[] frameJump;
@@ -42,12 +42,21 @@ public class variables {
     public static Rectangle platforma;
 
     public static Rectangle lborderwall;
-    public static Rectangle tree;
+    
+    
     public static Rectangle platforma2;
     public static Rectangle platforma3;
     public static Rectangle platforma4;
     public static Rectangle platforma5;
+    public static Rectangle platforma6;
+    public static Rectangle platforma7;
+    public static Rectangle platforma8;
+    public static Rectangle platforma9;
+    public static Rectangle platforma10;
+    
     public static Rectangle rborderwall;
+    
+    public static Rectangle tree;
     public static Rectangle tree2;
     public static Rectangle tree3;
     public static Paint treePaint=treeimgp;
@@ -65,6 +74,8 @@ public class variables {
     public static ImageView coinView4;
     public static ImageView coinView5;
     public static ImageView coinView6;
+    
+    public static ImageView[] coinViews;
 
     public static int score = 0;
 
