@@ -31,7 +31,6 @@ public class DoorWayGam2 extends Application {
         Button playButton = new Button();
         
         Player.character(playButton);
-        
         playButton.setOnAction(event -> primaryStage.setScene(variables.gameScene));
         //set the background
         frame1.background(primaryStage,playButton);
