@@ -24,6 +24,7 @@ public class DoorWayGam2 extends Application {
     frames frame1 = new frames();
     gameRolls level1 = new gameRolls();
     player Player=new player();
+    
     @Override
     public void start(Stage primaryStage) {
     	//set the player and the buttons
