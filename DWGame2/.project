@@ -24,17 +24,17 @@
 		<link>
 			<name>src/Gold</name>
 			<type>2</type>
-			<location>E:/Processing/Images/Game assets/Coins/Gold</location>
+			<location>E:/Processing/New folder (2)/Gold</location>
 		</link>
 		<link>
 			<name>src/Jamp</name>
 			<type>2</type>
-			<location>C:/Users/User/AppData/Local/Temp/Rar$DRa20652.14350/game/Jamp</location>
+			<location>E:/Processing/New folder (2)/Jamp</location>
 		</link>
 		<link>
 			<name>src/RunLeft</name>
 			<type>2</type>
-			<location>C:/Users/User/AppData/Local/Temp/Rar$DRa20652.13247/game/RunLeft</location>
+			<location>E:/Processing/New folder (2)/RunLeft</location>
 		</link>
 	</linkedResources>
 </projectDescription>
