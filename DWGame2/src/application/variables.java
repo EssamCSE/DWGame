@@ -38,12 +38,35 @@ public class variables {
     public static boolean isJumping;
     public static double prevCharX;
     public static double prevCharY;
-
-    public static Rectangle platforma;
+    
+    public static Rectangle[] crate  = new Rectangle[1];
+    public static Rectangle[] crate2 = new Rectangle[2];
+    public static Rectangle[] crate3 = new Rectangle[3];
+    public static Rectangle[] crate4 = new Rectangle[4];
+    public static Rectangle[] crate5 = new Rectangle[5];
+    public static Rectangle[] crate555 = new Rectangle[5];
+    
+    // For Crate 2
+    public static Rectangle[] crate1  = new Rectangle[1];
+    public static Rectangle[] crate22 = new Rectangle[2];
+    public static Rectangle[] crate33 = new Rectangle[3];
+    public static Rectangle[] crate44 = new Rectangle[4];
+    public static Rectangle[] crate55 = new Rectangle[5];
+//    public static Rectangle crate;
+//    public static Rectangle crate1;
+//    public static Rectangle crate2;
+//    public static Rectangle crate3;
+//    public static Rectangle crate4;
+    public static Rectangle crate6;
+    public static Rectangle crate7;
+    public static Rectangle crate8;
+    public static Rectangle crate9;
+    public static Rectangle crate10;
+    
 
     public static Rectangle lborderwall;
     
-    
+    public static Rectangle platforma;
     public static Rectangle platforma2;
     public static Rectangle platforma3;
     public static Rectangle platforma4;
@@ -53,7 +76,6 @@ public class variables {
     public static Rectangle platforma8;
     public static Rectangle platforma9;
     public static Rectangle platforma10;
-    
     public static Rectangle rborderwall;
     
     public static Rectangle tree;
@@ -68,17 +90,48 @@ public class variables {
     public static boolean touchedMob2 = false;
     public static Rectangle mob2;
 
+    
+      public static ImageView[] coinViews = new ImageView[6];
+    
     public static ImageView coinView;
     public static ImageView coinView2;
     public static ImageView coinView3;
     public static ImageView coinView4;
     public static ImageView coinView5;
     public static ImageView coinView6;
+    public static ImageView coinView7;
+    public static ImageView coinView8;
+    public static ImageView coinView9;
+    public static ImageView coinView10;
+    public static ImageView coinView11;
+    public static ImageView coinView12;
+    public static ImageView coinView13;
+    public static ImageView coinView14;
+    public static ImageView coinView15;
     
-    public static ImageView[] coinViews;
+//    public static ImageView[] coinViews;
 
     public static int score = 0;
 
     public static Rectangle platformaflag;
     public static final int SCREEN_HEIGHT = HEIGHT + 100;
+    
+      public static Rectangle[] crateLine = new Rectangle[5];
+      public static Rectangle[] crateLine2 = new Rectangle[5];
+      public static Rectangle[] crateLine3 = new Rectangle[5];
+      public static Rectangle[] crateLineSep = new Rectangle[5];
+      public static Rectangle[] crateLineLan = new Rectangle[6];
+      public static Rectangle[] crateLineLanP = new Rectangle[6];
+      public static Rectangle[] crateLineLanP1 = new Rectangle[6];
+      public static Rectangle[] crateLineLanP2 = new Rectangle[6];
+      public static Rectangle[] crateLineLanP3 = new Rectangle[6];
+
+      
+      
+      public static Rectangle[] seas = new Rectangle[60];
+      public static Rectangle[] sea = new Rectangle[60];
+      
+      public static double cameraX = 0;
+      public static double cameraY = 0;
+      public static double CAMERA_SPEED = 5;
 }

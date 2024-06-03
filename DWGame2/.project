@@ -20,4 +20,31 @@
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>src/GreenLandTiles</name>
+			<type>2</type>
+			<location>E:/Processing/Images/Game assets/Greenland/png/GreenLandTiles</location>
+		</link>
+		<link>
+			<name>src/Land</name>
+			<type>2</type>
+			<location>E:/Processing/Images/Game assets/Greenland/png/Land</location>
+		</link>
+		<link>
+			<name>src/LandP</name>
+			<type>2</type>
+			<location>E:/Processing/Images/Game assets/Greenland/png/Land/LandP</location>
+		</link>
+		<link>
+			<name>src/Object</name>
+			<type>2</type>
+			<location>E:/Processing/Images/Game assets/Greenland/png/Object</location>
+		</link>
+		<link>
+			<name>src/Retina</name>
+			<type>2</type>
+			<location>E:/Processing/Images/PNG/Retina</location>
+		</link>
+	</linkedResources>
 </projectDescription>

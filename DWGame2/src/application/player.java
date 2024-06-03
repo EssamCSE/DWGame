@@ -86,7 +86,7 @@ public class player {
          } else if (keyCode == KeyCode.RIGHT) {
          	variables.moveRight = false;
              if (!variables.moveLeft) {
-             	variables.charView.setImage(variables.frameStandRight[0]); //e vendos panden pa leviz duke pare djathtas
+             	variables.charView.setImage(variables.frameStandRight[0]); 
              }
          }
      });

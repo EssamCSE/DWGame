@@ -6,8 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -43,10 +45,30 @@ public class DoorWayGam2 extends Application {
         Player.playerMove ();
         //add objects to the scene
         Pane gamePane = (Pane) variables.gameScene.getRoot();
-        gamePane.getChildren().addAll(variables.charView, variables.coinView, variables.coinView2, variables.coinView3, variables.coinView4, variables.coinView5, variables.coinView6);
+        gamePane.getChildren().addAll(variables.charView, variables.coinView, 
+        		variables.coinView2, variables.coinView3, variables.coinView4, 
+        		variables.coinView5,variables.coinView6, variables.coinView7, 
+        		variables.coinView8,variables.coinView9,variables.coinView10, 
+        		variables.coinView11,variables.coinView12, variables.coinView13,
+        		variables.coinView14,variables.coinView15);
         //handle press keys case
         Player.KeyHandle();
         //level1.animLoop();
+        
+        
+        // Create the score text
+        Text scoreText = new Text("Score: " + variables.score);
+        scoreText.setFont(Font.font("Arial", FontWeight.BOLD, 24));
+        scoreText.setFill(Color.WHITE);
+        scoreText.setLayoutX(10);  // Adjust X position
+        scoreText.setLayoutY(50);  // Adjust Y position
+
+        // Get the root of the game scene
+        Pane gamePane1 = (Pane) variables.gameScene.getRoot();
+
+        // Add the score text directly to the root of the scene
+        gamePane1.getChildren().add(scoreText);
+        
         AnimationTimer gameLoop = new AnimationTimer() {
             
         	@Override
@@ -54,7 +76,13 @@ public class DoorWayGam2 extends Application {
             	
             	variables.charX += variables.charVelX;
                 variables.charY += variables.charVelY;
-
+                
+                
+//                // Update the position of the score text to keep it fixed
+                scoreText.setLayoutX(-gamePane1.getLayoutX() + 10);
+                scoreText.setLayoutY(-gamePane1.getLayoutY() + 200);
+//
+//                
                 // graviteti lojes
                 variables.charVelY += 1;
                 //
@@ -79,17 +107,111 @@ public class DoorWayGam2 extends Application {
                 if (variables.charX <= variables.lborderwall.getX() + variables.lborderwall.getWidth()) {
                 	variables.charX = variables.lborderwall.getX() + variables.lborderwall.getWidth();
                 } else if (variables.charX + variables.charView.getFitWidth() >= variables.rborderwall.getX()) {
-                	variables.charX = variables.rborderwall.getX() - variables.charView.getFitWidth();
+               	variables.charX = variables.rborderwall.getX() - variables.charView.getFitWidth();
                 }
-
-                //collision 
+                
+                
+                
                 boolean collided = false;
+                boolean collided2 = false;
+                boolean collided3 = false;
+                boolean collided4 = false;
+                boolean collided5 = false;
+                boolean collided6 = false;
+                boolean collided7 = false;
+                boolean collided8 = false;
+                boolean collided9 = false;
+                boolean collided10 = false;
+                boolean collided11 = false;
+                boolean collidedSea = false;
+//                
+                Collision collision = new Collision();
+                Collision collision1 = new Collision();
+                
+                
+                // CRATE COLLISSION
+                TriangleCrate crate1 = new TriangleCrate();
+                TriangleCrate crate2 = new TriangleCrate();
 
+                // Check collisions for crate1
+                collided = collision.CrateCollision(
+                        crate1.getcrate(), 
+                        crate1.getcrate3(), 
+                        crate1.getcrate5()
+                );
+                
+//                // Check collisions for crate2
+                collided2 = collision.CrateCollision(
+                        crate2.getcrate1(), 
+                        crate2.getcrate33(), 
+                        crate2.getcrate55()
+                );
+                
+                
+                LineCrate line1  = new LineCrate();
+                collided3 = collision1.CrateCollision(
+                		line1.crateLine()
+                );
+                
+                
+
+                LineCrate line2  = new LineCrate();
+                collided4 = collision1.CrateCollision(
+                		line2.crateLine2()
+                		);
+                
+                LineCrate line3  = new LineCrate();
+                collided5 = collision1.CrateCollision(
+                		line3.crateLine3()
+                		);
+                
+                LineCrate line4  = new LineCrate();
+                collided6 = collision1.CrateCollision(
+                		line4.crateLineSep()
+                		);
+                
+                LineCrate line5  = new LineCrate();
+                collided7 = collision1.CrateCollision(
+                		line5.crateLineLan()
+                		);
+                
+                LineCrate line6  = new LineCrate();
+                collided8 = collision1.CrateCollision(
+                		line6.crateLineLanP()
+                		);
+                LineCrate line7  = new LineCrate();
+                collided9 = collision1.CrateCollision(
+                		line7.crateLineLanP1()
+                		);
+                LineCrate line8  = new LineCrate();
+                collided10 = collision1.CrateCollision(
+                		line8.crateLineLanP2()
+                		);
+                LineCrate line9  = new LineCrate();
+                collided11 = collision1.CrateCollision(
+                		line9.crateLineLanP3()
+                		);
+                
+                Sea sea = new Sea();
+                collidedSea = collision1.CrateCollision(
+                		sea.seaLine()
+                		);
+                
+                if(collidedSea) {
+                	gameOver(primaryStage);
+                }
+                
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                
+                //collision 
                 if (variables.charY + variables.charView.getFitHeight() >= variables.platforma.getY() && variables.charY <= variables.platforma.getY() + variables.platforma.getHeight()) {
                     if (variables.charX + variables.charView.getFitWidth() >= variables.platforma.getX() && variables.charX <= variables.platforma.getX() + variables.platforma.getWidth()) {
                         collided = true;
                     }
                 }
+
+                
                 if (variables.charY + variables.charView.getFitHeight() >= variables.platforma2.getY() && variables.charY <= variables.platforma2.getY() + variables.platforma2.getHeight()) {
                     if (variables.charX + variables.charView.getFitWidth() >= variables.platforma2.getX() && variables.charX <= variables.platforma2.getX() + variables.platforma2.getWidth()) {
                         collided = true;
@@ -113,14 +235,14 @@ public class DoorWayGam2 extends Application {
 
                     }
                 }
-
+                
+                // Flage Collision 
                 if (variables.charY + variables.charView.getFitHeight() >= variables.platformaflag.getY() && variables.charY <= variables.platformaflag.getY() + variables.platformaflag.getHeight()) {
                     if (variables.charX +variables. charView.getFitWidth() >= variables.platformaflag.getX() && variables.charX <= variables.platformaflag.getX() + variables.platformaflag.getWidth()) {
                         collided = true;
                         variables.reachedPlatform = true;
                     }
                 }
-
                 if (variables.reachedPlatform) {
                     Text message = new Text("Congratulations,You made it!");
                     Text hs1 = new Text("Score: "+ variables.score);
@@ -158,6 +280,11 @@ public class DoorWayGam2 extends Application {
 
                     level1.resetGameState();
                 }
+                
+                
+                
+                
+                
                 if (variables.charY + variables.charView.getFitHeight() >= variables.mob1.getY() && variables.charY <= variables.mob1.getY() + variables.mob1.getHeight()) {
                     if (variables.charX + variables.charView.getFitWidth() >= variables.mob1.getX() && variables.charX <= variables.mob1.getX() + variables.mob1.getWidth()) {
                         collided = true;
@@ -213,68 +340,35 @@ public class DoorWayGam2 extends Application {
 
                 }
 
-                //check per perplasjen me pickup item
-                if (variables.charY + variables.charView.getFitHeight() >= variables.coinView.getY() && variables.charY <= variables.coinView.getY() + variables.coinView.getFitHeight()) {
-                    if (variables.charX + variables.charView.getFitWidth() >= variables.coinView.getX() && variables.charX <= variables.coinView.getX() + variables.coinView.getFitWidth()) {
-                    	variables.coinView.setVisible(false);
-                        variables.score += 5;
-                    }
-                }
-                variables.coinView.setX(500);
-                variables.coinView.setY(560);
+                // Coin
+      
+              
+                    ImageView[] coinViews = {variables.coinView, variables.coinView2, variables.coinView3,
+                                             variables.coinView4, variables.coinView5, variables.coinView6,
+                                             variables.coinView7, variables.coinView8, variables.coinView9,
+                                             variables.coinView10, variables.coinView11, variables.coinView12,
+                                             variables.coinView13, variables.coinView14, variables.coinView15};
+                    
+                    double[] coinPositionsX = {500, 1050, 1500, 2000, 2500, 3100, 3140,3180,3220,3260,4000,4040,4080,4120,6000};
+                    double [] coinPositionY = {565, 565, 565, 495, 565, 565, 565, 460, 460, 460, 430, 430, 430, 430, 565};
 
-                if (variables.charY + variables.charView.getFitHeight() >= variables.coinView2.getY() && variables.charY <= variables.coinView2.getY() + variables.coinView2.getFitHeight()) {
-                    if (variables.charX + variables.charView.getFitWidth() >= variables.coinView2.getX() && variables.charX <= variables.coinView2.getX() + variables.coinView2.getFitWidth()) {
-                    	variables.coinView2.setVisible(false);
-                        variables.score += 5;
+                    for (int i = 0; i < coinViews.length; i++) {
+                        checkCollisionAndScore(coinViews[i], coinPositionsX[i], coinPositionY[i]);
                     }
-                }
-                variables.coinView2.setX(1050);
-                variables.coinView2.setY(560);
-
-                if (variables.charY + variables.charView.getFitHeight() >= variables.coinView3.getY() && variables.charY <= variables.coinView3.getY() + variables.coinView3.getFitHeight()) {
-                    if (variables.charX + variables.charView.getFitWidth() >= variables.coinView3.getX() && variables.charX <= variables.coinView3.getX() + variables.coinView3.getFitWidth()) {
-                    	variables.coinView3.setVisible(false);
-                        variables.score += 5;
-                    }
-                }
-                variables.coinView3.setX(1500);
-                variables.coinView3.setY(560);
-
-                if (variables.charY + variables.charView.getFitHeight() >= variables.coinView4.getY() && variables.charY <= variables.coinView4.getY() + variables.coinView4.getFitHeight()) {
-                    if (variables.charX + variables.charView.getFitWidth() >= variables.coinView4.getX() && variables.charX <= variables.coinView4.getX() + variables.coinView4.getFitWidth()) {
-                    	variables.coinView4.setVisible(false);
-                        variables.score += 5;
-                    }
-                }
-                variables.coinView4.setX(2000);
-                variables.coinView4.setY(560);
-
-                if (variables.charY + variables.charView.getFitHeight() >= variables.coinView5.getY() && variables.charY <= variables.coinView5.getY() + variables.coinView5.getFitHeight()) {
-                    if (variables.charX + variables.charView.getFitWidth() >= variables.coinView5.getX() && variables.charX <= variables.coinView5.getX() + variables.coinView5.getFitWidth()) {
-                    	variables.coinView5.setVisible(false);
-                    	variables.score += 5;
-                    }
-                }
-                variables.coinView5.setX(2500);
-                variables.coinView5.setY(560);
-
-                if (variables.charY + variables.charView.getFitHeight() >= variables.coinView6.getY() && variables.charY <= variables.coinView6.getY() + variables.coinView6.getFitHeight()) {
-                    if (variables.charX + variables.charView.getFitWidth() >= variables.coinView6.getX() && variables.charX <= variables.coinView6.getX() + variables.coinView6.getFitWidth()) {
-                    	variables.coinView6.setVisible(false);
-                    	variables.score += 5;
-                    }
-                }
-                variables.coinView6.setX(3100);
-                variables.coinView6.setY(560);
-
-                //peplasja midis karakterit dhe speed boostit
+   
+                    
+                    
+                
+                scoreText.setText("Score: " + variables.score);
+                scoreText.toFront();
+                
+                
                 if (variables.charY + variables.charView.getFitHeight() >= variables.speedBoostView.getY() &&
                 		variables.charY <= variables.speedBoostView.getY() + variables.speedBoostView.getFitHeight()) {
                     if (variables.charX + variables.charView.getFitWidth() >= variables.speedBoostView.getX() &&
                     		variables.charX <= variables.speedBoostView.getX() + variables.speedBoostView.getFitWidth()) {
                     	variables.hasSpeedBoost = true;
-                        gamePane.getChildren().remove(variables.speedBoostView);
+                        gamePane1.getChildren().remove(variables.speedBoostView);
                     }
                 }
 
@@ -288,33 +382,29 @@ public class DoorWayGam2 extends Application {
                     }
 
                 }
-
-                //teston nese collision nga ndodhur
-                if (collided) {
-                    //karakteri behet reset te lokacioni i meparshem
+                
+                if (collided || collided2 || collided3 ||collided4 || collided5 || collided6 || collided7 || collided8 || collided9 || collided10 || collided11) {
                 	variables.charX = variables.prevCharX;
                 	variables.charY = variables.prevCharY;
                 	variables.charVelY = 0;
                 	variables.isJumping = false;
                 }
 
-                //behet update lokacioni i meparshem
                 variables.prevCharX = variables.charX;
                 variables.prevCharY = variables.charY;
 
-                //updatohet pozicioni i karakterit
                 variables.charView.setLayoutX(variables.charX);
                 variables.charView.setLayoutY(variables.charY);
 
-                // Camera follows the character
+                
                 double cameraX = variables.charView.getLayoutX() - (double) variables.WIDTH /2;
                 double cameraY = variables.charView.getLayoutY() - (double) variables.HEIGHT /2;
 
-                gamePane.setLayoutX(-cameraX);
-                gamePane.setLayoutY(-cameraY);
+                gamePane1.setLayoutX(-cameraX);
+                gamePane1.setLayoutY(-cameraY);
 
-                //update pozicionin e game pane
-                gamePane.relocate(-variables.charX + variables.WIDTH / 2, -variables.charY + variables.HEIGHT / 2);
+              
+                gamePane1.relocate(-variables.charX + variables.WIDTH / 2, -variables.charY + variables.HEIGHT / 2);
 
             }
         };
@@ -357,10 +447,24 @@ public class DoorWayGam2 extends Application {
 
         playagain2.setOnAction(eventHandler2);
 
-    //skena me mesazhe
+    
     Scene messageScene2 = new Scene(messagePane2,1280,720);
     primaryStage.setScene(messageScene2);
     level1.resetGameState();
+    }
+   
+    
+    public void checkCollisionAndScore(ImageView coinView, double x, double y) {
+        if (variables.charY + variables.charView.getFitHeight() >= coinView.getY() &&
+            variables.charY <= coinView.getY() + coinView.getFitHeight() &&
+            variables.charX + variables.charView.getFitWidth() >= coinView.getX() &&
+            variables.charX <= coinView.getX() + coinView.getFitWidth()) {
+            
+            coinView.setVisible(false);
+            variables.score += 5;
+        }
+        coinView.setX(x);
+        coinView.setY(y);
     }
 
    
